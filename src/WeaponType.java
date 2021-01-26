@@ -1,14 +1,18 @@
 public enum WeaponType {
 
-    CLAYMORE(0),
-    SWORD(1),
-    POLEARM(2),
-    CATALYST(3),
-    BOWS(4);
+    CLAYMORE("Claymore"),
+    SWORD("Sword"),
+    POLEARM("Polearm"),
+    CATALYST("Catalyst"),
+    BOWS("Bows");
 
-    private int type;
+    private String type;
 
-    WeaponType(int type) {
+    WeaponType(String type) {
         this.type = type;
+    }
+
+    public String getType() {
+        return this.type;
     }
 }

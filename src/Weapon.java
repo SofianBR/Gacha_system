@@ -1,16 +1,35 @@
-public class Weapon extends Item {
+public class Weapon implements Summonable {
 
+    private String name;
     private WeaponType weaponType;
+    private Stars stars;
 
-    public Weapon(Stars stars, String name, WeaponType weaponType) {
-        super(stars, name);
+    public Weapon(String name, WeaponType weaponType, Stars stars) {
+        this.name = name;
         this.weaponType = weaponType;
+        this.stars = stars;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getWeaponType() { return this.weaponType.getType(); }
+
+    public int getNumStars() {
+        return this.stars.getNumStars();
     }
 
     @Override
     public String toString() {
-        Colour stars = Stars.getColour(this.stars);
-        return new StringBuilder(stars.getColour()).append(getName()).append(" ").append(getNumStars()).append("*")
-                .append(Colour.RESET.getColour()).toString();
+        int numStars = getNumStars();
+        Colour stars = Colour.getStars(numStars);
+        return new StringBuilder(stars.getColour())
+                .append(getName())
+                .append(" ")
+                .append(numStars)
+                .append("*")
+                .append(Colour.reset())
+                .toString();
     }
 }
