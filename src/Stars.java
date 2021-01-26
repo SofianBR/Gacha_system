@@ -4,26 +4,23 @@ public enum Stars {
     FOUR(4),
     FIVE(5);
 
-    private final int num_stars;
+    public int numStars;
+    private final float[] probabilities = {0.006f, 0.051f, 0.943f};
+    private final int OFFSET = 3;
+    private Colour rarity;
 
-    Stars(int num_stars) {
-        this.num_stars = num_stars;
+    Stars(int numStars) {
+        this.numStars = numStars;
+        this.rarity = Colour.getStars(numStars);
     }
 
     public int getNumStars() {
-        return this.num_stars;
+        return this.numStars;
     }
 
-    public static Colour getColour(Stars stars) {
-        switch(stars) {
-            case FIVE:
-                return Colour.YELLOW;
-            case FOUR:
-                return Colour.PURPLE;
-            case THREE:
-                return Colour.BLUE;
-            default:
-                return null;
-        }
+    public float getProbablity() {
+        return probabilities[numStars - OFFSET];
     }
+
+    public Colour getRarity() { return this.rarity; }
 }

@@ -4,7 +4,8 @@ public class GachaBot {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-
+        FiveCharacter f = new FiveCharacter("Diluc", Element.PYRO);
+        System.out.println(f.stars);
         System.out.print("Input your username: ");
         String username = sc.nextLine();
         System.out.println();
@@ -18,11 +19,11 @@ public class GachaBot {
             switch(op) {
 
                 case 1:
-                    user.wish(1, "Albedo");
+                    //user.wish(1, "Albedo");
                     break;
 
                 case 2:
-                    user.wish(10, "Albedo");
+                    //user.wish(10, "Albedo");
                     break;
 
                 case 3:

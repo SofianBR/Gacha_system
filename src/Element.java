@@ -11,30 +11,14 @@ public enum Element {
     GEO("geo");
 
     private String element;
+    private Colour elementType;
 
     Element(String element) {
         this.element = element;
+        this.elementType = Colour.getElement(element);
     }
 
     public String getElement() { return this.element; }
 
-    public static Colour getElement(Element element) {
-        switch(element) {
-            case PYRO:
-                return Colour.RED;
-            case HYDRO:
-                return Colour.BLUE;
-            case ANEMO:
-            case DENDRO:
-                return Colour.GREEN;
-            case CRYO:
-                return Colour.WHITE;
-            case ELECTRO:
-                return Colour.PURPLE;
-            case GEO:
-                return Colour.YELLOW;
-            default:
-                return null;
-        }
-    }
+    public Colour getElementType() { return this.elementType; }
 }
